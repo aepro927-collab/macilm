@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Aerio 4-en-1 — Climatiseur Mobile | MaClim</title>
+<meta name="description" content="Climatiseur mobile Aerio 4-en-1 : froid, chaud, déshumidificateur, ventilateur. 16 000 BTU, ultra-silencieux, classe A+. Livraison gratuite.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;font-family:inherit}
+
+/* ===== VARIABLES ===== */
+:root{
+  --orange:#e8622a;
+  --orange-dark:#d45520;
+  --orange-light:#fff4ef;
+  --blue:#1b3a4b;
+  --blue-light:#2a6f97;
+  --teal:#0e9aa7;
+  --teal-light:#e6f7f8;
+  --gold:#f0a500;
+  --green:#27ae60;
+  --red:#e74c3c;
+  --gray-50:#f8f9fa;
+  --gray-100:#f1f3f5;
+  --gray-200:#e9ecef;
+  --gray-400:#adb5bd;
+  --gray-600:#6c757d;
+  --gray-800:#343a40;
+  --radius:12px;
+  --radius-lg:16px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+}
+
+/* ===== ANNOUNCEMENT BAR ===== */
+.announce-bar{
+  background:var(--blue);color:#fff;
+  padding:10px 0;overflow:hidden;position:relative;
+  font-size:13px;font-weight:500;letter-spacing:.3px;
+}
+.announce-track{
+  display:flex;gap:60px;
+  animation:scroll-left 25s linear infinite;
+  width:max-content;
+}
+.announce-track span{white-space:nowrap;display:flex;align-items:center;gap:6px}
+.announce-track span::before{content:'';display:inline-block;width:4px;height:4px;background:var(--orange);border-radius:50%}
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== HEADER ===== */
+.header{
+  padding:16px 20px;text-align:center;
+  border-bottom:1px solid var(--gray-200);
+  position:sticky;top:0;background:#fff;z-index:100;
+}
+.logo{font-size:24px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.logo span{color:var(--orange)}
+
+/* ===== URGENCY RESTOCK BANNER ===== */
+.restock-banner{
+  background:linear-gradient(135deg,#fff4ef 0%,#ffecd2 100%);
+  border:2px solid var(--orange);
+  border-radius:var(--radius);
+  padding:16px 20px;
+  margin:16px;
+  text-align:center;
+}
+.restock-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--red);color:#fff;
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+  margin-bottom:10px;letter-spacing:.5px;
+  animation:pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.restock-banner h3{font-size:15px;font-weight:800;color:var(--blue);line-height:1.4}
+.restock-banner h3 strong{color:var(--red)}
+.restock-banner p{font-size:13px;color:var(--gray-600);margin-top:6px}
+
+/* ===== PRODUCT HERO ===== */
+.hero{padding:0 16px 24px}
+.gallery{
+  position:relative;overflow:hidden;
+  border-radius:var(--radius-lg);
+  background:var(--gray-50);
+  margin-bottom:16px;
+}
+.gallery-main{
+  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.gallery-main::-webkit-scrollbar{display:none}
+.gallery-main img{
+  min-width:100%;scroll-snap-align:start;
+  aspect-ratio:1/1;object-fit:contain;padding:16px;
+}
+.gallery-badge{
+  position:absolute;top:12px;left:12px;
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:800;
+  padding:6px 14px;border-radius:8px;
+  z-index:2;
+}
+.gallery-thumbs{
+  display:flex;gap:8px;padding:0 4px 8px;
+  overflow-x:auto;scrollbar-width:none;
+}
+.gallery-thumbs::-webkit-scrollbar{display:none}
+.gallery-thumbs img{
+  width:64px;height:64px;object-fit:cover;
+  border-radius:8px;border:2px solid transparent;
+  cursor:pointer;flex-shrink:0;
+}
+.gallery-thumbs img.active{border-color:var(--orange)}
+
+/* ===== PRODUCT INFO ===== */
+.product-info{padding:0 16px}
+.product-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.product-badges span{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  padding:4px 10px;border-radius:6px;letter-spacing:.3px;
+}
+.badge-promo{background:var(--red);color:#fff}
+.badge-brand{background:var(--blue);color:#fff}
+.badge-ship{background:var(--teal-light);color:var(--teal)}
+
+.product-info h1{
+  font-family:'Playfair Display',serif;
+  font-size:24px;font-weight:800;
+  line-height:1.25;color:var(--blue);
+  margin-bottom:8px;
+}
+.product-info .subtitle{font-size:14px;color:var(--gray-600);margin-bottom:12px}
+
+.stars{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.stars-icons{color:var(--gold);font-size:16px;letter-spacing:1px}
+.stars-text{font-size:13px;color:var(--gray-600)}
+.stars-text strong{color:var(--blue)}
+
+/* ===== PRICING ===== */
+.pricing{margin-bottom:20px}
+.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.price-current{font-size:36px;font-weight:900;color:var(--orange)}
+.price-old{font-size:18px;color:var(--gray-400);text-decoration:line-through}
+.price-discount{
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:800;
+  padding:3px 10px;border-radius:6px;
+  align-self:center;
+}
+
+/* ===== BUNDLE SELECTOR ===== */
+.bundle-selector{margin-bottom:20px}
+.bundle-selector h3{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--blue)}
+.bundle-option{
+  border:2px solid var(--gray-200);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  margin-bottom:10px;
+  cursor:pointer;
+  transition:all .2s;
+  position:relative;
+}
+.bundle-option.selected{border-color:var(--orange);background:var(--orange-light)}
+.bundle-option.best-value{border-color:var(--teal)}
+.bundle-option.best-value.selected{border-color:var(--orange);background:var(--orange-light)}
+.best-value-tag{
+  position:absolute;top:-10px;right:12px;
+  background:var(--teal);color:#fff;
+  font-size:10px;font-weight:800;text-transform:uppercase;
+  padding:2px 10px;border-radius:10px;letter-spacing:.5px;
+}
+.bundle-header{display:flex;justify-content:space-between;align-items:center}
+.bundle-name{font-size:15px;font-weight:700;color:var(--blue)}
+.bundle-price{font-size:18px;font-weight:800;color:var(--orange)}
+.bundle-detail{font-size:12px;color:var(--gray-600);margin-top:4px}
+.bundle-gift{
+  display:flex;align-items:center;gap:10px;
+  margin-top:10px;padding-top:10px;
+  border-top:1px dashed var(--gray-200);
+}
+.bundle-gift img{width:44px;height:44px;object-fit:contain;border-radius:6px;background:#fff;border:1px solid var(--gray-200)}
+.bundle-gift-info{flex:1}
+.bundle-gift-info .gift-label{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase}
+.bundle-gift-info .gift-name{font-size:13px;font-weight:600;color:var(--blue)}
+.bundle-gift-prices{text-align:right}
+.bundle-gift-prices .gift-old{font-size:12px;color:var(--gray-400);text-decoration:line-through}
+.bundle-gift-prices .gift-free{font-size:14px;font-weight:800;color:var(--green)}
+
+/* ===== COUNTDOWN ===== */
+.countdown-bar{
+  background:linear-gradient(90deg,var(--orange),var(--orange-dark));
+  color:#fff;text-align:center;
+  padding:10px;border-radius:8px;
+  margin-bottom:16px;
+  font-size:13px;font-weight:700;
+}
+.countdown-bar span{font-variant-numeric:tabular-nums}
+
+/* ===== STOCK INDICATOR ===== */
+.stock-info{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:16px;font-size:13px;
+}
+.stock-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.stock-info span{color:var(--red);font-weight:700}
+
+/* ===== CTA BUTTON ===== */
+.cta-btn{
+  display:block;width:100%;
+  background:linear-gradient(135deg,var(--orange),var(--orange-dark));
+  color:#fff;font-size:17px;font-weight:800;
+  padding:18px;border-radius:var(--radius);
+  text-align:center;letter-spacing:.3px;
+  box-shadow:0 4px 16px rgba(232,98,42,.35);
+  transition:transform .15s,box-shadow .15s;
+  text-transform:uppercase;
+}
+.cta-btn:active{transform:scale(.98);box-shadow:0 2px 8px rgba(232,98,42,.25)}
+
+.cta-sub{
+  text-align:center;font-size:11px;
+  color:var(--gray-400);margin-top:10px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.payment-icons{display:flex;justify-content:center;gap:12px;margin-top:8px}
+.payment-icons span{
+  font-size:11px;font-weight:700;color:var(--gray-600);
+  background:var(--gray-100);padding:4px 10px;border-radius:4px;
+}
+
+/* ===== TRUST BADGES ===== */
+.trust-badges{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin:20px 16px;
+}
+.trust-badge{
+  display:flex;align-items:center;gap:10px;
+  padding:12px;background:var(--gray-50);
+  border-radius:var(--radius);
+}
+.trust-badge .icon{font-size:20px;flex-shrink:0}
+.trust-badge .text{font-size:12px;font-weight:600;color:var(--blue);line-height:1.3}
+
+/* ===== CANICULE MAP SECTION ===== */
+.canicule-section{
+  margin:24px 16px;
+  background:linear-gradient(135deg,#fff8f0 0%,#fff0e6 100%);
+  border:2px solid #f5c097;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+.canicule-section img{width:100%;object-fit:cover}
+.canicule-content{padding:20px}
+.canicule-alert{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:800;text-transform:uppercase;
+  color:var(--red);margin-bottom:10px;letter-spacing:.5px;
+}
+.canicule-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:800;color:var(--blue);
+  line-height:1.3;margin-bottom:10px;
+}
+.canicule-content p{font-size:14px;color:var(--gray-600);margin-bottom:16px;line-height:1.6}
+.canicule-content p strong{color:var(--blue)}
+.canicule-cta{
+  display:block;width:100%;
+  background:var(--orange);color:#fff;
+  text-align:center;padding:14px;
+  border-radius:var(--radius);
+  font-size:15px;font-weight:800;
+  text-transform:uppercase;
+}
+
+/* ===== SPECS GRID ===== */
+.specs-grid-section{
+  margin:32px 16px;
+  background:linear-gradient(180deg,var(--blue) 0%,#1a3040 100%);
+  border-radius:var(--radius-lg);
+  padding:24px 16px;
+  color:#fff;
+}
+.specs-grid-section .label{
+  display:inline-block;
+  background:var(--orange);color:#fff;
+  font-size:11px;font-weight:800;
+  padding:4px 12px;border-radius:20px;
+  margin-bottom:16px;text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.spec-card{
+  background:rgba(255,255,255,.08);
+  border-radius:var(--radius);
+  padding:16px;
+  border:1px solid rgba(255,255,255,.1);
+}
+.spec-card .value{font-size:20px;font-weight:800;line-height:1.2;margin-bottom:4px}
+.spec-card .desc{font-size:12px;color:rgba(255,255,255,.6)}
+.spec-full{grid-column:1/-1}
+.specs-footer{
+  margin-top:12px;
+  font-size:12px;color:rgba(255,255,255,.6);
+  display:flex;align-items:center;gap:6px;
+}
+.specs-footer::before{content:'✓';color:var(--green)}
+
+/* ===== SECTION STYLES ===== */
+.section{padding:32px 16px}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:24px;font-weight:800;
+  color:var(--blue);text-align:center;
+  margin-bottom:24px;line-height:1.3;
+}
+.section-subtitle{
+  text-align:center;font-size:14px;
+  color:var(--gray-600);margin-top:-16px;
+  margin-bottom:24px;
+}
+
+/* ===== FEATURES ===== */
+.features{padding:32px 16px}
+.feature-card{
+  display:flex;gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid var(--gray-100);
+}
+.feature-card:last-child{border:none}
+.feature-icon{
+  width:44px;height:44px;flex-shrink:0;
+  background:var(--orange-light);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.feature-card h3{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.feature-card p{font-size:13px;color:var(--gray-600);line-height:1.5}
+
+/* ===== SPECS TABLE ===== */
+.specs-table{
+  margin:0 16px 32px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--gray-200);
+}
+.specs-table .row{
+  display:flex;
+  padding:12px 16px;
+  font-size:13px;
+  border-bottom:1px solid var(--gray-100);
+}
+.specs-table .row:last-child{border:none}
+.specs-table .row:nth-child(even){background:var(--gray-50)}
+.specs-table .label{font-weight:600;color:var(--blue);flex:1}
+.specs-table .val{flex:1;text-align:right;color:var(--gray-600)}
+
+/* ===== COMPARISON TABLE ===== */
+.comparison{margin:0 16px 32px}
+.comparison table{
+  width:100%;border-collapse:collapse;
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.comparison thead{background:var(--blue);color:#fff}
+.comparison th{padding:14px 12px;font-size:13px;font-weight:700;text-align:center}
+.comparison th:first-child{text-align:left}
+.comparison th.brand{color:var(--orange);font-size:14px}
+.comparison td{padding:12px;font-size:13px;text-align:center;border-bottom:1px solid var(--gray-100)}
+.comparison td:first-child{text-align:left;font-weight:600;color:var(--blue)}
+.comparison .highlight{color:var(--teal);font-weight:700}
+
+/* ===== TRUSTPILOT CAROUSEL ===== */
+.tp-section{padding:32px 0}
+.tp-header{text-align:center;margin-bottom:20px;padding:0 16px}
+.tp-header .tp-stars{font-size:14px;color:var(--green);font-weight:700;margin-bottom:4px}
+.tp-header .tp-score{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--blue)}
+.tp-header .tp-count{font-size:13px;color:var(--gray-600);margin-top:4px}
+.tp-carousel{
+  display:flex;gap:12px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:0 16px 16px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.tp-carousel::-webkit-scrollbar{display:none}
+.tp-card{
+  min-width:280px;max-width:320px;
+  scroll-snap-align:start;
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;flex-shrink:0;
+}
+.tp-card img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.tp-nav{display:flex;justify-content:center;gap:8px;margin-top:4px}
+.tp-nav span{width:8px;height:8px;border-radius:50%;background:var(--gray-200)}
+.tp-nav span.active{background:var(--orange)}
+
+/* ===== REVIEWS ===== */
+.reviews-section{padding:32px 16px}
+.review-stars-big{
+  text-align:center;
+  margin-bottom:20px;
+}
+.review-stars-big .stars-display{font-size:28px;color:var(--gold);letter-spacing:2px}
+.review-stars-big .score{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--blue)}
+.review-stars-big .count{font-size:13px;color:var(--gray-600);margin-top:4px}
+
+.review-card{
+  background:var(--gray-50);
+  border-radius:var(--radius);
+  padding:20px;margin-bottom:12px;
+}
+.review-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:16px;
+}
+.review-meta{flex:1}
+.review-name{font-size:14px;font-weight:700;color:var(--blue)}
+.review-verified{font-size:11px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:4px}
+.review-stars-small{font-size:14px;color:var(--gold)}
+.review-title{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:6px}
+.review-text{font-size:13px;color:var(--gray-600);line-height:1.6}
+.review-date{font-size:11px;color:var(--gray-400);margin-top:8px}
+
+/* ===== FAQ ===== */
+.faq{padding:32px 16px}
+.faq-item{border-bottom:1px solid var(--gray-200);padding:16px 0}
+.faq-item:last-child{border:none}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;font-size:14px;font-weight:700;
+  color:var(--blue);gap:12px;
+}
+.faq-q::after{content:'+';font-size:20px;font-weight:400;color:var(--orange);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-item.open .faq-a{max-height:500px}
+.faq-a p{padding:12px 0 4px;font-size:13px;color:var(--gray-600);line-height:1.7}
+
+/* ===== FINAL CTA ===== */
+.final-cta{
+  margin:16px;
+  background:linear-gradient(135deg,var(--blue),#1a3040);
+  border-radius:var(--radius-lg);
+  padding:32px 24px;
+  text-align:center;
+  color:#fff;
+}
+.final-cta h2{
+  font-family:'Playfair Display',serif;
+  font-size:24px;font-weight:800;
+  margin-bottom:8px;
+}
+.final-cta p{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:20px}
+.final-cta .cta-btn{box-shadow:0 4px 16px rgba(232,98,42,.5)}
+
+/* ===== FOOTER ===== */
+.footer{
+  padding:32px 16px;
+  background:var(--gray-50);
+  border-top:1px solid var(--gray-200);
+}
+.footer-brand{text-align:center;margin-bottom:20px}
+.footer-brand .logo{font-size:20px}
+.footer-links{
+  display:flex;flex-wrap:wrap;
+  justify-content:center;gap:16px;
+  margin-bottom:16px;
+}
+.footer-links a{font-size:12px;color:var(--gray-600)}
+.footer-contact{text-align:center;font-size:12px;color:var(--gray-400);line-height:1.8}
+.footer-copy{text-align:center;font-size:11px;color:var(--gray-400);margin-top:16px}
+
+/* ===== SOCIAL PROOF POPUP ===== */
+.social-proof{
+  position:fixed;bottom:20px;left:16px;right:16px;
+  background:#fff;border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:12px 16px;
+  display:flex;align-items:center;gap:12px;
+  z-index:200;
+  transform:translateY(120%);
+  transition:transform .4s ease;
+}
+.social-proof.visible{transform:translateY(0)}
+.social-proof .sp-icon{font-size:24px;flex-shrink:0}
+.social-proof .sp-text{font-size:12px;color:var(--gray-600)}
+.social-proof .sp-text strong{color:var(--blue)}
+.social-proof .sp-time{font-size:11px;color:var(--gray-400)}
+.social-proof .sp-close{
+  position:absolute;top:6px;right:10px;
+  font-size:16px;color:var(--gray-400);
+  background:none;padding:4px;
+}
+
+/* ===== STICKY BOTTOM BAR ===== */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:#fff;
+  border-top:1px solid var(--gray-200);
+  padding:10px 16px;
+  z-index:150;
+  display:none;
+  box-shadow:0 -4px 20px rgba(0,0,0,.08);
+}
+.sticky-bar.visible{display:flex;align-items:center;gap:12px}
+.sticky-bar .sb-price{flex-shrink:0}
+.sticky-bar .sb-current{font-size:20px;font-weight:900;color:var(--orange)}
+.sticky-bar .sb-old{font-size:12px;color:var(--gray-400);text-decoration:line-through}
+.sticky-bar .sb-btn{
+  flex:1;
+  background:var(--orange);color:#fff;
+  font-size:14px;font-weight:800;
+  padding:14px;border-radius:var(--radius);
+  text-align:center;text-transform:uppercase;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in{opacity:0;transform:translateY(20px);transition:all .5s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== DESKTOP ADJUSTMENTS ===== */
+@media(min-width:768px){
+  .hero{max-width:500px;margin:0 auto}
+  .product-info,.trust-badges,.canicule-section,.specs-grid-section,
+  .features,.specs-table,.comparison,.reviews-section,.faq,.final-cta{
+    max-width:600px;margin-left:auto;margin-right:auto;
+  }
+  .tp-card{min-width:300px}
+  .restock-banner{max-width:600px;margin:16px auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <div class="announce-track">
+    <span>Expédition sous 24h</span>
+    <span>Excellent 4,7/5 — 1 478 avis Trustpilot</span>
+    <span>Satisfait ou remboursé 30 jours</span>
+    <span>Garantie 2 ans incluse</span>
+    <span>Livraison gratuite</span>
+    <span>Expédition sous 24h</span>
+    <span>Excellent 4,7/5 — 1 478 avis Trustpilot</span>
+    <span>Satisfait ou remboursé 30 jours</span>
+    <span>Garantie 2 ans incluse</span>
+    <span>Livraison gratuite</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">MA<span>CLIM</span></div>
+</header>
+
+<!-- RESTOCK URGENCY BANNER -->
+<div class="restock-banner">
+  <div class="restock-badge">🔥 Dernier réassort</div>
+  <h3>Réassort exceptionnel : <strong>100 unités</strong> — le dernier de l'été.<br>Offre spéciale réservée aux <strong>50 premiers</strong>.</h3>
+  <p>Quand c'est fini, c'est fini. Pas de réapprovisionnement avant septembre.</p>
+</div>
+
+<!-- PRODUCT HERO -->
+<section class="hero" id="offer">
+  <div class="gallery">
+    <span class="gallery-badge">-68%</span>
+    <div class="gallery-main" id="galleryMain">
+      <img src="images/image-produit-1.jpg" alt="Aerio 4-en-1 Climatiseur Mobile - Vue principale">
+      <img src="images/image-produit-2.jpg" alt="Aerio 4-en-1 - Fonctionnalités">
+      <img src="images/image-produit-3.jpg" alt="Aerio 4-en-1 - En situation">
+      <img src="images/image-produit-4.jpg" alt="Aerio 4-en-1 - Détails techniques">
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs">
+      <img src="images/image-produit-1.jpg" alt="thumb 1" class="active" onclick="scrollToSlide(0)">
+      <img src="images/image-produit-2.jpg" alt="thumb 2" onclick="scrollToSlide(1)">
+      <img src="images/image-produit-3.jpg" alt="thumb 3" onclick="scrollToSlide(2)">
+      <img src="images/image-produit-4.jpg" alt="thumb 4" onclick="scrollToSlide(3)">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT INFO -->
+<section class="product-info">
+  <div class="product-badges">
+    <span class="badge-promo">-68%</span>
+    <span class="badge-brand">AERIO</span>
+    <span class="badge-ship">Livraison gratuite</span>
+  </div>
+
+  <h1>Aerio 4‑en‑1 — Climatiseur Mobile 16 000 BTU · Ultra-silencieux · Classe A+</h1>
+  <p class="subtitle">Le climatiseur mobile le plus silencieux du marché. Refroidit, chauffe, déshumidifie et ventile — sans travaux, sans installation.</p>
+
+  <div class="stars">
+    <span class="stars-icons">★★★★★</span>
+    <span class="stars-text"><strong>4,7/5</strong> — 1 478 avis vérifiés</span>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing">
+    <div class="price-row">
+      <span class="price-current" id="displayPrice">39,99€</span>
+      <span class="price-old">124,99€</span>
+      <span class="price-discount">-68%</span>
+    </div>
+  </div>
+
+  <!-- BUNDLE SELECTOR -->
+  <div class="bundle-selector">
+    <h3>Choisissez votre offre :</h3>
+
+    <div class="bundle-option selected" onclick="selectBundle(1)">
+      <div class="bundle-header">
+        <span class="bundle-name">1× Aerio 4-en-1</span>
+        <span class="bundle-price">39,99€</span>
+      </div>
+      <div class="bundle-detail">124,99€ · Économisez 85€</div>
+    </div>
+
+    <div class="bundle-option best-value" onclick="selectBundle(2)">
+      <span class="best-value-tag">Meilleure offre</span>
+      <div class="bundle-header">
+        <span class="bundle-name">2× Aerio 4-en-1</span>
+        <span class="bundle-price">69,99€ <span style="font-size:12px;color:var(--gray-400);font-weight:400">soit 35€/unité</span></span>
+      </div>
+      <div class="bundle-detail">249,98€ · Économisez 180€</div>
+      <div class="bundle-gift">
+        <img src="images/image-thermometre-offert.jpg" alt="Thermomètre connecté offert">
+        <div class="bundle-gift-info">
+          <div class="gift-label">🎁 Cadeau offert</div>
+          <div class="gift-name">Thermomètre connecté</div>
+        </div>
+        <div class="bundle-gift-prices">
+          <div class="gift-old">19,99€</div>
+          <div class="gift-free">GRATUIT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-bar">
+    Offre flash — se termine dans <span id="countdown">29:59</span>
+  </div>
+
+  <!-- STOCK -->
+  <div class="stock-info">
+    <span class="stock-dot"></span>
+    <span>Stock limité — plus que <strong id="stockCount">23</strong> en stock</span>
+  </div>
+
+  <!-- CTA -->
+  <a href="#" class="cta-btn" id="ctaBtn">Commander — 39,99€</a>
+
+  <div class="cta-sub">🔒 Transaction sécurisée · Cryptage SSL</div>
+  <div class="payment-icons">
+    <span>VISA</span><span>MASTERCARD</span><span>CB</span><span>APPLE PAY</span>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<div class="trust-badges">
+  <div class="trust-badge"><span class="icon">🚚</span><span class="text">Expédition sous 24h</span></div>
+  <div class="trust-badge"><span class="icon">🌍</span><span class="text">Livraison internationale 3-5 jours</span></div>
+  <div class="trust-badge"><span class="icon">🛡️</span><span class="text">Garantie 2 ans</span></div>
+  <div class="trust-badge"><span class="icon">↩️</span><span class="text">Satisfait ou remboursé 30 jours</span></div>
+</div>
+
+<!-- CANICULE MAP SECTION -->
+<div class="canicule-section fade-in">
+  <img src="images/carrte-de-france-canicule.jpg" alt="Carte de France - Alerte canicule">
+  <div class="canicule-content">
+    <div class="canicule-alert">⚠️ Alerte canicule</div>
+    <h2>Vague de chaleur attendue sur toute la France</h2>
+    <p>Des températures de <strong>35°C à 42°C</strong> sont prévues cette semaine sur la majorité du territoire. Commandez <strong>aujourd'hui</strong> pour recevoir votre Aerio <strong>avant le pic de chaleur</strong> — livraison gratuite en 3 à 5 jours.</p>
+    <a href="#offer" class="canicule-cta">Je me protège maintenant →</a>
+  </div>
+</div>
+
+<!-- SPECS GRID -->
+<div class="specs-grid-section fade-in">
+  <span class="label">Aerio · -68%</span>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <div class="value">16 000 BTU<br><span style="font-size:14px;opacity:.7">(4,7 kW)</span></div>
+      <div class="desc">Puissance froid</div>
+    </div>
+    <div class="spec-card">
+      <div class="value">11 000 BTU</div>
+      <div class="desc">Chauffage</div>
+    </div>
+    <div class="spec-card">
+      <div class="value">4-en-1</div>
+      <div class="desc">Froid · Chaud · Déshumid · Ventil</div>
+    </div>
+    <div class="spec-card">
+      <div class="value">jusqu'à 32 m²</div>
+      <div class="desc">Surface conseillée</div>
+    </div>
+  </div>
+  <div class="specs-footer">Livraison gratuite · Satisfait ou remboursé 30 jours · Garantie 2 ans</div>
+</div>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2 class="section-title">Pourquoi l'Aerio change tout</h2>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">❄️</div>
+    <div>
+      <h3>Refroidissement ultra-rapide</h3>
+      <p>16 000 BTU de puissance. Fait chuter la température de votre pièce en quelques minutes, même en pleine canicule.</p>
+    </div>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">🤫</div>
+    <div>
+      <h3>Ultra-silencieux — idéal pour la nuit</h3>
+      <p>Seulement 42 dB en mode nuit. Vous dormez au frais sans aucun bruit parasite. L'un des plus silencieux du marché.</p>
+    </div>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">⚡</div>
+    <div>
+      <h3>Classe énergétique A+ — économe</h3>
+      <p>Consomme très peu d'énergie. Rafraîchissez toute la journée sans voir la différence sur votre facture.</p>
+    </div>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">🔄</div>
+    <div>
+      <h3>4 fonctions en 1 seul appareil</h3>
+      <p>Climatisation, chauffage, déshumidification et ventilation. Un seul achat pour toutes les saisons.</p>
+    </div>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">📱</div>
+    <div>
+      <h3>Télécommande & application</h3>
+      <p>Contrôlez tout depuis le canapé ou votre smartphone. Programmez, ajustez la température, changez de mode à distance.</p>
+    </div>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="feature-icon">🏠</div>
+    <div>
+      <h3>Zéro travaux, installation en 10 min</h3>
+      <p>Branchez et profitez. Mobile sur roulettes, se déplace de pièce en pièce. Aucune intervention d'un professionnel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS TABLE -->
+<h2 class="section-title">Caractéristiques techniques</h2>
+<div class="specs-table">
+  <div class="row"><span class="label">Puissance froid</span><span class="val">16 000 BTU (4,7 kW)</span></div>
+  <div class="row"><span class="label">Puissance chaud</span><span class="val">11 000 BTU</span></div>
+  <div class="row"><span class="label">Fonctions</span><span class="val">4-en-1</span></div>
+  <div class="row"><span class="label">Surface conseillée</span><span class="val">jusqu'à 32 m²</span></div>
+  <div class="row"><span class="label">Débit d'air</span><span class="val">420 m³/h</span></div>
+  <div class="row"><span class="label">Niveau sonore</span><span class="val">42–49 dB</span></div>
+  <div class="row"><span class="label">Classe énergie</span><span class="val">A+</span></div>
+  <div class="row"><span class="label">Déshumidification</span><span class="val">1,9 L/h</span></div>
+  <div class="row"><span class="label">Inclus</span><span class="val">Kit fenêtre + télécommande + appli</span></div>
+  <div class="row"><span class="label">Garantie</span><span class="val">2 ans</span></div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<h2 class="section-title">Pourquoi MaClim ?</h2>
+<div class="comparison">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="brand">MaClim</th>
+        <th>Magasin classique</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Prix</td><td class="highlight">39,99€</td><td>124,99€ et +</td></tr>
+      <tr><td>Livraison</td><td class="highlight">Gratuite</td><td>30€ à 80€</td></tr>
+      <tr><td>Produit Aerio d'origine</td><td class="highlight">Oui</td><td>Oui</td></tr>
+      <tr><td>Satisfait ou remboursé</td><td class="highlight">30 jours</td><td>14 jours</td></tr>
+      <tr><td>Garantie</td><td class="highlight">2 ans</td><td>Variable</td></tr>
+      <tr><td>SAV en France</td><td class="highlight">7j/7</td><td>Variable</td></tr>
+      <tr><td>Expédition</td><td class="highlight">Sous 24h</td><td>3-7 jours</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TRUSTPILOT CAROUSEL -->
+<section class="tp-section fade-in">
+  <div class="tp-header">
+    <div class="tp-stars">★★★★★ Excellent</div>
+    <div class="tp-score">4,7 / 5</div>
+    <div class="tp-count">Basé sur 1 478 avis Trustpilot vérifiés</div>
+  </div>
+  <div class="tp-carousel">
+    <div class="tp-card"><img src="images/avis-trustpilot1.jpg" alt="Avis Trustpilot - Client 1"></div>
+    <div class="tp-card"><img src="images/avis-trustpilot2.jpg" alt="Avis Trustpilot - Client 2"></div>
+    <div class="tp-card"><img src="images/avis-trustpilot3.jpg" alt="Avis Trustpilot - Client 3"></div>
+    <div class="tp-card"><img src="images/avis-trustpilot4.jpg" alt="Avis Trustpilot - Client 4"></div>
+  </div>
+</section>
+
+<!-- TEXT REVIEWS -->
+<section class="reviews-section">
+  <h2 class="section-title">Avis clients</h2>
+  <div class="review-stars-big">
+    <div class="stars-display">★★★★★</div>
+    <div class="score">4,7/5</div>
+    <div class="count">Basé sur 1 478 avis vérifiés</div>
+  </div>
+
+  <div class="review-card fade-in">
+    <div class="review-header">
+      <div class="review-avatar">S</div>
+      <div class="review-meta">
+        <div class="review-name">Sophie M.</div>
+        <div class="review-verified">✓ Achat vérifié</div>
+      </div>
+      <div class="review-stars-small">★★★★★</div>
+    </div>
+    <div class="review-title">Enfin du frais à la maison</div>
+    <div class="review-text">Reçu en 3 jours, branché en 5 minutes. La pièce est rafraîchie en un quart d'heure, et la nuit on dort enfin bien. Silencieux comme promis.</div>
+    <div class="review-date">Il y a 4 jours</div>
+  </div>
+
+  <div class="review-card fade-in">
+    <div class="review-header">
+      <div class="review-avatar">M</div>
+      <div class="review-meta">
+        <div class="review-name">Marc D.</div>
+        <div class="review-verified">✓ Achat vérifié</div>
+      </div>
+      <div class="review-stars-small">★★★★★</div>
+    </div>
+    <div class="review-title">Impressionné par la puissance</div>
+    <div class="review-text">Installé en moins de 10 minutes sans aucun outil, ça change tout en pleine canicule. Ma chambre est passée de 29°C à 19°C en un quart d'heure. Je ne pensais pas qu'un appareil sans installation pro pouvait être aussi efficace.</div>
+    <div class="review-date">Il y a 6 jours</div>
+  </div>
+
+  <div class="review-card fade-in">
+    <div class="review-header">
+      <div class="review-avatar">L</div>
+      <div class="review-meta">
+        <div class="review-name">Lucie R.</div>
+        <div class="review-verified">✓ Achat vérifié</div>
+      </div>
+      <div class="review-stars-small">★★★★★</div>
+    </div>
+    <div class="review-title">Ultra silencieux, parfait pour dormir</div>
+    <div class="review-text">J'avais peur que ce soit bruyant mais en mode nuit on ne l'entend quasiment pas. Mon studio de 25m² est frais en 20 minutes. Et la conso électrique est ridicule, ça se voit à peine sur la facture. Je recommande à 100%.</div>
+    <div class="review-date">Il y a 8 jours</div>
+  </div>
+
+  <div class="review-card fade-in">
+    <div class="review-header">
+      <div class="review-avatar">T</div>
+      <div class="review-meta">
+        <div class="review-name">Thomas K.</div>
+        <div class="review-verified">✓ Achat vérifié</div>
+      </div>
+      <div class="review-stars-small">★★★★☆</div>
+    </div>
+    <div class="review-title">Très bon rapport qualité/prix</div>
+    <div class="review-text">Pour le prix c'est imbattable. Il rafraîchit bien, le tuyau d'évacuation est fourni mais je ne l'utilise pas au quotidien, juste en cas de grosse canicule. Le mode ventilateur seul est déjà très agréable.</div>
+    <div class="review-date">Il y a 12 jours</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="section-title">Questions fréquentes</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q" onclick="toggleFaq(this)">Quel est le délai de livraison ?</div>
+    <div class="faq-a"><p>Expédition sous 24h après commande. Livraison gratuite en France métropolitaine en 3 à 5 jours ouvrés. Livraison internationale disponible en 3 à 5 jours selon le pays. Numéro de suivi envoyé par email dès l'expédition.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Que contient le colis ? Tout est inclus ?</div>
+    <div class="faq-a"><p>Oui, tout ce qui est visible sur les photos est fourni : le climatiseur Aerio 4-en-1, la télécommande, le kit d'installation fenêtre, le tuyau d'évacuation d'air chaud et le mode d'emploi. Tout est inclus, prêt à l'emploi en moins de 10 minutes.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Le tuyau d'évacuation est-il obligatoire ?</div>
+    <div class="faq-a"><p>Non, le tuyau d'évacuation est fourni mais son utilisation n'est pas obligatoire. Vous pouvez utiliser le climatiseur sans le brancher. Il est cependant recommandé de l'utiliser lors de très grosses vagues de chaleur ou si vous souhaitez rafraîchir votre pièce plus rapidement et plus efficacement.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Est-il vraiment silencieux ?</div>
+    <div class="faq-a"><p>Oui, l'Aerio est l'un des climatiseurs mobiles les plus silencieux du marché. En mode nuit, il ne produit que 42 dB — c'est moins qu'un murmure. Idéal pour dormir au frais toute la nuit sans aucune gêne sonore.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Combien ça consomme en électricité ?</div>
+    <div class="faq-a"><p>L'Aerio est classé A+ en consommation énergétique. Il consomme très peu d'énergie par rapport aux climatiseurs traditionnels. Vous pouvez le faire tourner toute la journée sans impact notable sur votre facture d'électricité.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Et si je ne suis pas satisfait ?</div>
+    <div class="faq-a"><p>Vous disposez de 30 jours pour nous retourner le produit. Remboursement intégral garanti, sans justification. Notre SAV en France répond sous 24h, 7j/7. De plus, votre Aerio est couvert par une garantie de 2 ans.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Le bundle 2 climatiseurs inclut quoi ?</div>
+    <div class="faq-a"><p>Le pack 2× Aerio 4-en-1 à 69,99€ (soit 35€ l'unité) inclut 2 climatiseurs complets avec tous leurs accessoires + un thermomètre connecté d'une valeur de 19,99€ offert. Idéal pour équiper deux pièces ou offrir à un proche.</p></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta fade-in">
+  <h2>Passez l'été au frais</h2>
+  <p>Stock limité au prix déstockage — avant remontée du prix.</p>
+  <a href="#offer" class="cta-btn">Commander maintenant →</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">
+    <div class="logo">MA<span>CLIM</span></div>
+  </div>
+  <div class="footer-links">
+    <a href="/pages/cgv">Conditions générales de vente</a>
+    <a href="/policies/privacy-policy">Politique de confidentialité</a>
+    <a href="/pages/politique-retour">Politique de retour</a>
+    <a href="/pages/politique-expedition">Politique d'expédition</a>
+    <a href="/pages/contact">Contact</a>
+  </div>
+  <div class="footer-contact">
+    Une question ? Notre équipe répond 7j/7.<br>
+    <strong>Email :</strong> support@maclim.com
+  </div>
+  <div class="footer-copy">© 2026 MaClim · Tous droits réservés · Paiement sécurisé</div>
+</footer>
+
+<!-- SOCIAL PROOF POPUP -->
+<div class="social-proof" id="socialProof">
+  <span class="sp-icon">📦</span>
+  <div>
+    <div class="sp-text"><strong id="spName">Lucas</strong> de <span id="spCity">Lyon</span> vient de commander</div>
+    <div class="sp-time">Il y a <span id="spTime">3</span> min</div>
+  </div>
+  <button class="sp-close" onclick="closeSocialProof()">×</button>
+</div>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sb-price">
+    <div class="sb-current" id="stickyPrice">39,99€</div>
+    <div class="sb-old">124,99€</div>
+  </div>
+  <a href="#offer" class="sb-btn">Commander →</a>
+</div>
+
+<script>
+// ===== GALLERY =====
+const galleryMain = document.getElementById('galleryMain');
+const thumbs = document.querySelectorAll('.gallery-thumbs img');
+
+function scrollToSlide(i) {
+  const w = galleryMain.querySelector('img').offsetWidth;
+  galleryMain.scrollTo({ left: w * i, behavior: 'smooth' });
+  thumbs.forEach((t, idx) => t.classList.toggle('active', idx === i));
+}
+
+galleryMain.addEventListener('scroll', () => {
+  const w = galleryMain.querySelector('img').offsetWidth;
+  const i = Math.round(galleryMain.scrollLeft / w);
+  thumbs.forEach((t, idx) => t.classList.toggle('active', idx === i));
+});
+
+// ===== BUNDLE SELECTOR =====
+const bundleOptions = document.querySelectorAll('.bundle-option');
+const displayPrice = document.getElementById('displayPrice');
+const ctaBtn = document.getElementById('ctaBtn');
+const stickyPrice = document.getElementById('stickyPrice');
+
+function selectBundle(n) {
+  bundleOptions.forEach((o, i) => o.classList.toggle('selected', i === n - 1));
+  if (n === 1) {
+    displayPrice.textContent = '39,99€';
+    ctaBtn.textContent = 'Commander — 39,99€';
+    stickyPrice.textContent = '39,99€';
+  } else {
+    displayPrice.textContent = '69,99€';
+    ctaBtn.textContent = 'Commander 2× — 69,99€';
+    stickyPrice.textContent = '69,99€';
+  }
+}
+
+// ===== COUNTDOWN =====
+let totalSeconds = 29 * 60 + 59;
+const countdownEl = document.getElementById('countdown');
+
+setInterval(() => {
+  if (totalSeconds <= 0) totalSeconds = 29 * 60 + 59;
+  totalSeconds--;
+  const m = Math.floor(totalSeconds / 60);
+  const s = totalSeconds % 60;
+  countdownEl.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}, 1000);
+
+// ===== FAQ =====
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+// ===== SOCIAL PROOF =====
+const names = [
+  { name: 'Lucas', city: 'Lyon' },
+  { name: 'Camille', city: 'Paris' },
+  { name: 'Julien', city: 'Marseille' },
+  { name: 'Marie', city: 'Bordeaux' },
+  { name: 'Antoine', city: 'Toulouse' },
+  { name: 'Chloé', city: 'Nantes' },
+  { name: 'Alexandre', city: 'Lille' },
+  { name: 'Léa', city: 'Strasbourg' },
+  { name: 'Nicolas', city: 'Montpellier' },
+  { name: 'Emma', city: 'Rennes' },
+  { name: 'Mehdi', city: 'Nice' },
+  { name: 'Sarah', city: 'Grenoble' },
+];
+const sp = document.getElementById('socialProof');
+let spTimeout;
+
+function showSocialProof() {
+  const n = names[Math.floor(Math.random() * names.length)];
+  document.getElementById('spName').textContent = n.name;
+  document.getElementById('spCity').textContent = n.city;
+  document.getElementById('spTime').textContent = Math.floor(Math.random() * 8) + 1;
+  sp.classList.add('visible');
+  spTimeout = setTimeout(() => sp.classList.remove('visible'), 5000);
+}
+
+function closeSocialProof() {
+  sp.classList.remove('visible');
+  clearTimeout(spTimeout);
+}
+
+setTimeout(showSocialProof, 6000);
+setInterval(showSocialProof, 25000);
+
+// ===== STICKY BAR =====
+const stickyBar = document.getElementById('stickyBar');
+const offerSection = document.getElementById('offer');
+
+window.addEventListener('scroll', () => {
+  const offerBottom = offerSection.getBoundingClientRect().bottom;
+  stickyBar.classList.toggle('visible', offerBottom < -200);
+});
+
+// ===== FADE IN ANIMATION =====
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== STOCK SIMULATION =====
+const stockEl = document.getElementById('stockCount');
+let stock = 23;
+setInterval(() => {
+  if (Math.random() > 0.7 && stock > 3) {
+    stock--;
+    stockEl.textContent = stock;
+  }
+}, 30000);
+</script>
+
+</body>
+</html>
